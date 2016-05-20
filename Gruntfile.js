@@ -11,7 +11,7 @@
                         compress: true
                     },
                     files: {
-                        'app/css/main.min.css': [
+                        'dist/css/main.min.css': [
                             'bower_components/bootstrap/dist/css/bootstrap.css',
                             'bower_components/bootstrap/dist/css/bootstrap-theme.css',
                             'bower_components/fontawesome/css/font-awesome.css',
@@ -28,7 +28,7 @@
                 },
                 my_target: {
                     files: {
-                        'app/js/main.min.js': [
+                        'dist/js/main.min.js': [
                             'bower_components/jquery/dist/jquery.js',
                             'bower_components/bootstrap/dist/js/bootstrap.js',
                             'bower_components/angular/angular.js',
@@ -45,10 +45,10 @@
                         collapseWhitespace: true
                     },
                     files: {
-                        'app/index.html': 'dev/pages/index.html',
-                        'app/about.html': 'dev/pages/about.html',
-                        'app/home.html': 'dev/pages/home.html',
-                        'app/contact.html': 'dev/pages/contact.html',
+                        'dist/index.html': 'dev/pages/index.html',
+                        'dist/about.html': 'dev/pages/about.html',
+                        'dist/home.html': 'dev/pages/home.html',
+                        'dist/contact.html': 'dev/pages/contact.html',
                     }
                 }
             },
