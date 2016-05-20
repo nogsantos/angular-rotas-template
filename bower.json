@@ -1,0 +1,16 @@
+{
+  "name": "fabricio_nogueira",
+  "version": "0.0.1",
+  "main": "/",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.3",
+    "bootstrap": "~3.3.6",
+    "fontawesome": "~4.6.3",
+    "angular": "^1.5.5"
+  },
+  "devDependencies": {}
+}
