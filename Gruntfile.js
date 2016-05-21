@@ -12,9 +12,6 @@
                     },
                     files: {
                         'dist/css/main.min.css': [
-                            'bower_components/bootstrap/dist/css/bootstrap.css',
-                            'bower_components/bootstrap/dist/css/bootstrap-theme.css',
-                            'bower_components/fontawesome/css/font-awesome.css',
                             "dev/css/main.less"
                         ]
                     }
@@ -30,9 +27,11 @@
                     files: {
                         'dist/js/main.min.js': [
                             'bower_components/jquery/dist/jquery.js',
-                            'bower_components/bootstrap/dist/js/bootstrap.js',
                             'bower_components/angular/angular.js',
                             'bower_components/angular-route/angular-route.js',
+                            'bower_components/angular-animate/angular-animate.js',
+                            'bower_components/angular-aria/angular-aria.js',
+                            'bower_components/angular-material/angular-material.js',
                             'dev/js/main.js',
                         ]
                     }
@@ -49,6 +48,21 @@
                         'dist/about.html': 'dev/pages/about.html',
                         'dist/home.html': 'dev/pages/home.html',
                         'dist/contact.html': 'dev/pages/contact.html',
+                        'dist/404.html': 'dev/pages/404.html',
+                    }
+                }
+            },
+            cssmin: {
+                options: {
+                    shorthandCompacting: false,
+                    roundingPrecision: -1
+                },
+                target: {
+                    files: {
+                        'dist/css/layout.min.css': [
+                            'bower_components/angular-material/angular-material.css',
+                            'bower_components/fontawesome/css/font-awesome.css',
+                        ]
                     }
                 }
             },
@@ -59,15 +73,16 @@
                         'dev/js/**/*',
                         'dev/css/**/*'
                     ],
-                    tasks : [ 'uglify', 'less', 'htmlmin' ]
+                    tasks : [ 'uglify', 'less', 'htmlmin', 'cssmin' ]
                 }
             }
         };
 
         grunt.loadNpmTasks('grunt-contrib-less');
         grunt.loadNpmTasks('grunt-contrib-uglify');
-        grunt.loadNpmTasks('grunt-contrib-watch');
         grunt.loadNpmTasks('grunt-contrib-htmlmin');
+        grunt.loadNpmTasks('grunt-contrib-cssmin');
+        grunt.loadNpmTasks('grunt-contrib-watch');
 
         grunt.initConfig(gruntConfig);
 
