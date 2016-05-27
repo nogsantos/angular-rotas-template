@@ -1,14 +1,17 @@
 {
-    "name": "fabricio_nogueira",
-    "version": "0.0.1",
-    "private": true,
-    "author": "Fabricio Nogueira",
-    "devDependencies": {
-        "grunt": "^0.4.5",
-        "grunt-contrib-cssmin": "^1.0.1",
-        "grunt-contrib-htmlmin": "^1.4.0",
-        "grunt-contrib-less": "^1.2.0",
-        "grunt-contrib-uglify": "^1.0.0",
-        "grunt-contrib-watch": "^0.6.1"
-    }
+  "name": "fabricio_nogueira",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Fabricio Nogueira",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-htmlmin": "^1.4.0",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-uglify": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-exec": "^0.4.7",
+    "grunt-wiredep": "^3.0.1"
+  }
 }
