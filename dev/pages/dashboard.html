@@ -1,23 +1,30 @@
-<div class="page-header">
-    <h1>{{ title }}</h1>
-</div>
-<div flex>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Painel 1</h3>
-        </div>
-        <div class="panel-body">
-            Panel content
+<!-- menu -->
+<section ng-include src="'header.html'"></section>
+<!-- conteudo -->
+<article class="content">
+    <div class="page-header">
+        <h1>{{ title }}</h1>
+    </div>
+    <div flex>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Painel 1</h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
         </div>
     </div>
-</div>
-<div flex>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Panel 2</h3>
-        </div>
-        <div class="panel-body">
-            Panel content
+    <div flex>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel 2</h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
         </div>
     </div>
-</div>
+</article>
+<!-- rodape -->
+<section ng-include src="'footer.html'"></section>

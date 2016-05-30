@@ -1,6 +1,6 @@
 /**
-* Módulos GRUNT ambiente de desenvolvimento
-*/
+ * Módulos GRUNT ambiente de desenvolvimento
+ */
 (function(){
     "use strict";
     module.exports = function (grunt) {
@@ -28,9 +28,10 @@
                         'dist/js/main.min.js': [
                             'dev/js/header.js',
                             'dev/js/routes.js',
+                            'dev/js/controllers/*js',
                             'dev/js/app.js',
                             'dev/js/factory.js',
-                            'dev/js/controllers/*js',
+                            'dev/js/directive.js',
                         ]
                     }
                 }
@@ -48,6 +49,9 @@
                             'bower_components/angular-ui-router/release/angular-ui-router.min.js',
                             'bower_components/angular-animate/angular-animate.min.js',
                             'bower_components/angular-material/angular-material.min.js',
+                            'bower_components/ngstorage/ngStorage.min.js',
+                            'bower_components/angular-loading-bar/build/loading-bar.min.js',
+                            'bower_components/angular-flash-alert/dist/angular-flash.min.js',
                         ],
                     },
                 },
@@ -67,6 +71,7 @@
                         'dist/error.html': 'dev/pages/error.html',
                         'dist/about.html': 'dev/pages/about.html',
                         'dist/contact.html': 'dev/pages/contact.html',
+                        'dist/login.html': 'dev/pages/login.html',
                     }
                 }
             },
@@ -81,17 +86,18 @@
                             'bower_components/angular-material/angular-material.min.css',
                             'bower_components/fontawesome/css/font-awesome.min.css',
                             'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                            'bower_components/angular-loading-bar/build/loading-bar.min.css',
                         ]
                     }
                 }
             },
-            exec:{
-                run_bower:{
-                    command:'bower install',
-                    stdout : true,
-                    stderr : true
-                }
-            },
+            // exec:{
+            //     run_bower:{
+            //         command:'bower install',
+            //         stdout : true,
+            //         stderr : true
+            //     }
+            // },
             watch : {
                 dist : {
                     files : [
@@ -110,7 +116,7 @@
         grunt.loadNpmTasks('grunt-contrib-htmlmin');
         grunt.loadNpmTasks('grunt-contrib-cssmin');
         grunt.loadNpmTasks('grunt-contrib-concat');
-        grunt.loadNpmTasks('grunt-exec');
+        // grunt.loadNpmTasks('grunt-exec');
         grunt.loadNpmTasks('grunt-contrib-watch');
 
         grunt.initConfig(gruntConfig);

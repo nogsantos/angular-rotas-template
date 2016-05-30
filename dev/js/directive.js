@@ -1,7 +1,8 @@
 /**
- * Factory global do sistema
+ * Diretivas globais do sistema
  */
 (function(){
     "user strict";
+
 
 }());

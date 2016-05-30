@@ -3,7 +3,7 @@
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
-                <a ui-sref="home"><md-button class="md-icon-button" aria-label="Home">
+                <a ui-sref="dashboard"><md-button class="md-icon-button" aria-label="Home">
                     <md-tooltip>P&aacute;gina inicial</md-tooltip>
                     <md-icon><i class="fa fa-2x fa-home" aria-hidden="true"></md-icon>
                 </md-button></a>
@@ -42,7 +42,7 @@
                     </md-menu-content>
                 </md-menu>
                 <span flex></span>
-                <md-button class="md-icon-button" aria-label="Sair com seguran&ccedil;a">
+                <md-button class="md-icon-button" aria-label="Sair com seguran&ccedil;a" ng-click="logout()">
                     <md-tooltip>Sair com seguran&ccedil;a</md-tooltip>
                     <md-icon><i class="fa fa-2x fa-power-off" aria-hidden="true"></i></md-icon>
                 </md-button>

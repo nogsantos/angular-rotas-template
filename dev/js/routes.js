@@ -6,10 +6,19 @@
     app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider) {
         $urlRouterProvider.otherwise("/");
         $stateProvider
-            .state('home', {
+            .state('login', {
                 url: "/",
+                templateUrl: "login.html",
+                controller : "loginController",
+                controllerAs: "ctrl",
+                data :{
+                    requireLogin:false
+                }
+            })
+            .state('dashboard', {
+                url: "/home",
                 templateUrl: "dashboard.html",
-                controller : "mainController",
+                controller : "dashboardController",
                 controllerAs: "ctrl",
                 data :{
                     requireLogin:true
@@ -19,14 +28,20 @@
                 url: "/sobre",
                 templateUrl: "about.html",
                 controller: 'aboutController',
-                controllerAs: 'abt'
+                controllerAs: 'abt',
+                data :{
+                    requireLogin:true
+                }
             })
             .state('contato', {
                 url: "/contato",
                 templateUrl: "contact.html",
                 controller: 'contactController',
-                controllerAs: 'ct'
-            });
-        // $httpProvider.html5Mode(true);
+                controllerAs: 'ct',
+                data :{
+                    requireLogin:true
+                }
+            })
+        ;
     }]);
 }());
