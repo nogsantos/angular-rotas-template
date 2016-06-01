@@ -8,9 +8,15 @@
         '$localStorage',
         '$sessionStorage',
         function($scope, $localStorage, $sessionStorage) {
-
-        $scope.title = 'Dashboard';
-
+        /**
+         * Inicialização
+         */
+        var init = function(){
+            $scope.title = 'Dashboard';
+        };
+        /**
+         * Logout
+         */
         $scope.logout = function(){
             if(confirm('Sair do sistema com segurança?')){
                 $localStorage.$reset();
@@ -18,6 +24,10 @@
                 window.location = "/";
             }
         };
+        /*
+         * Chamada para inicializações
+         */
+        init();
 
     }]);
 }());

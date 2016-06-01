@@ -3,27 +3,31 @@
  */
 (function(){
 	"user strict";
-    app.controller('aboutController', ['$scope','$location', function($scope, $location) {
-        $scope.title = 'Sobre';
-        // $scope.fruit = $routeParams.name;
-        // $scope.fruitIndex = $scope.fruits.indexOf($scope.fruit);
+    app.controller('aboutController',[
+        '$scope',
+        '$http',
+        '$location',
+        'Flash',
+        function($scope, $http, $location, Flash){
         /**
-         * Save
+         * Inicialização do controller
          */
-        // $scope.save = function(){
-        //     if($scope.fruitIndex < 0) {
-        //         $scope.fruits.push($scope.fruit);
-        //     }else{
-        //         $scope.fruits[$scope.fruitIndex] = $scope.fruit;
-        //     }
-        //     $location.path('/sobre');
-        // };
-        // /**
-        //  * Remove
-        //  */
-        // $scope.remove = function(){
-        //
-        // };
+        var init = function(){
+            $scope.title = 'Sobre';
+            consultarDados();
+        };
 
+        function consultarDados(){
+            $http.get(
+                'http://demo1697442.mockable.io/q'
+            ).success(function(data){
+                $scope.q = data;
+            }).error(function(error, status){
+                var message = '<strong>Atenção</strong> Campo(s) obrigatório(s) precisa(m) ser preenchido(s).';
+                var id = Flash.create('warning', message);
+            });
+        }
+
+        init();
     }]);
 }());

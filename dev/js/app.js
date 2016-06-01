@@ -6,7 +6,12 @@
     /*
      * Configuração do tema, cores do sistema
      */
-    app.config(['$mdThemingProvider', '$localStorageProvider', '$sessionStorageProvider', function($mdThemingProvider, $localStorageProvider, $sessionStorageProvider) {
+    app.config([
+        '$mdThemingProvider',
+        '$localStorageProvider',
+        '$sessionStorageProvider',
+        '$httpProvider',
+        function($mdThemingProvider, $localStorageProvider, $sessionStorageProvider, $httpProvider) {
         /*
          * Tema
          */
@@ -20,11 +25,22 @@
          */
          $localStorageProvider.setKeyPrefix('_hsh.');
          $sessionStorageProvider.setKeyPrefix('_hsh.');
+         /*
+          * Cabeçalho padrão para as requisições
+          */
+         $httpProvider.interceptors.push('httpRequestInterceptor');
     }]);
     /*
      * Inicializações
      */
-    app.run(['$rootScope', '$http', '$location', '$localStorage', '$sessionStorage', function($rootScope, $http, $location, $localStorage, $sessionStorage){
+    app.run([
+        '$rootScope',
+        '$http',
+        '$location',
+        '$localStorage',
+        '$sessionStorage',
+        'Flash',
+        function($rootScope, $http, $location, $localStorage, $sessionStorage, Flash){
         $rootScope.sysname = "Sistema";
         /*
          * Título da página
@@ -41,20 +57,21 @@
          *  Implementar JWS (tokens)
          *
          */
-        // $localStorage.lu = { username: 'nogsantos', token: 'token' };
-        // $sessionStorage.su = { username: 'nogsantos', token: 'token' };
-
-        // if ($localStorage.currentUser) {
-        //     $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.currentUser.token;
-        // }
-
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+            /*
+             * Limpa as mensagens
+             */
+            Flash.clear();
+            /*
+             * Verifica se o usuário está autenticado.
+             */
             var requireLogin = toState.data.requireLogin;
             if (requireLogin && (!$localStorage.lu || !$sessionStorage.su)) {
+                // @TODO criar um login modal ?
+                window.location = "#/";
                 event.preventDefault();
-                // @TODO criar um login modal
-                console.log('solicitar login novamente');
-                // $location.path('/login');
+                var message = '<strong>Atenção!</strong> Você precisa ser autenticado para acessar essa área no sistema.';
+                var id = Flash.create('warning', message);
             }
         });
         /*

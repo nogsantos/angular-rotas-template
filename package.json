@@ -13,5 +13,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.7",
     "grunt-wiredep": "^3.0.1"
+  },
+  "dependencies": {
+    "grunt-contrib-concat": "^1.0.1"
   }
 }
