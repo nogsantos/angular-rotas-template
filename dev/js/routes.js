@@ -4,7 +4,7 @@
 (function(){
     "user strict";
     app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider) {
-        $urlRouterProvider.otherwise("/");
+        $urlRouterProvider.otherwise("/erro");
         $stateProvider
             .state('login', {
                 url: "/",
@@ -33,11 +33,29 @@
                     requireLogin:true
                 }
             })
+            .state('usuarios', {
+                url: "/usuarios",
+                templateUrl: "users.html",
+                controller: 'userController',
+                controllerAs: 'ctrl',
+                data :{
+                    requireLogin:true
+                }
+            })
             .state('contato', {
                 url: "/contato",
                 templateUrl: "contact.html",
                 controller: 'contactController',
                 controllerAs: 'ct',
+                data :{
+                    requireLogin:true
+                }
+            })
+            .state('erro', {
+                url: "/erro",
+                templateUrl: "error.html",
+                controller: 'erroController',
+                controllerAs: 'ctrl',
                 data :{
                     requireLogin:true
                 }

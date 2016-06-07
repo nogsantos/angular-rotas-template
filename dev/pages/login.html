@@ -1,4 +1,3 @@
-<!-- conteudo -->
 <article class="content">
     <div layout="row" layout-align="center center" layout-padding layout-margin layout-fill>
         <h1>Acesso <small>Tela de login</small></h1>
@@ -9,16 +8,16 @@
                 <form name="loginForm" autocomplete="off">
                     <md-input-container class="md-block">
                         <label>Usu&aacute;rio</label>
-                        <input required md-no-asterisk name="usuario" id="emailid" ng-model="login.usuario">
-                        <div ng-messages="loginForm.usuario.$error">
+                        <input required md-no-asterisk name="username" id="usernameid" ng-model="login.username">
+                        <div ng-messages="loginForm.username.$error">
                             <div ng-message="required">Campo obrigat&oacute;rio</div>
                             <div ng-message="md-maxlength">Informe seu usu&aacute;rio de acesso</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Senha</label>
-                        <input type="password" required md-no-asterisk name="senha" ng-model="login.senha">
-                        <div ng-messages="loginForm.senha.$error">
+                        <input type="password" required md-no-asterisk name="password" ng-model="login.password">
+                        <div ng-messages="loginForm.password.$error">
                             <div ng-message="required">Campo obrigat&oacute;rio</div>
                             <div ng-message="md-maxlength">Informe a senha de acesso</div>
                         </div>
@@ -31,5 +30,3 @@
         </md-card>
     </div>
 </article>
-<!-- rodape -->
-<section ng-include src="'footer.html'"></section>

@@ -11,7 +11,8 @@
         '$localStorageProvider',
         '$sessionStorageProvider',
         '$httpProvider',
-        function($mdThemingProvider, $localStorageProvider, $sessionStorageProvider, $httpProvider) {
+        'cfpLoadingBarProvider',
+        function($mdThemingProvider, $localStorageProvider, $sessionStorageProvider, $httpProvider, cfpLoadingBarProvider) {
         /*
          * Tema
          */
@@ -29,6 +30,10 @@
           * Cabeçalho padrão para as requisições
           */
          $httpProvider.interceptors.push('httpRequestInterceptor');
+         /*
+          * Configuração loading
+          */
+         cfpLoadingBarProvider.spinnerTemplate = '<div id="loading-bar-container"><span class="fa fa-spinner fa-pulse fa-3x fa-fw"></div>';
     }]);
     /*
      * Inicializações
@@ -40,29 +45,24 @@
         '$localStorage',
         '$sessionStorage',
         'Flash',
-        function($rootScope, $http, $location, $localStorage, $sessionStorage, Flash){
-        $rootScope.sysname = "Sistema";
+        'config',
+        function($rootScope, $http, $location, $localStorage, $sessionStorage, Flash, config){
+        $rootScope.sysname = config.appName+' ['+config.appVersion+']';
         /*
-         * Título da página
+         * Evento ao mudar a pagina
          */
-        $rootScope.$on("$routeChangeSuccess", function(event, currentRoute, previousRoute) {
-            $rootScope.page = currentRoute.title;
-        });
-        /*
-         * Login
-         *
-         * Criar login no localStorage e na sessionStorage
-         * @TODO
-         *  Verificar se pode ser uma boa prática essa abordagem.
-         *  Implementar JWS (tokens)
-         *
-         */
-        $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+        $rootScope.$on('$stateChangeStart', function (event, toState) {
+            /*
+             * Título da página
+             */
+           $rootScope.page = toState.name;
             /*
              * Limpa as mensagens
              */
             Flash.clear();
             /*
+             * Login
+             * Criar login no localStorage e na sessionStorage
              * Verifica se o usuário está autenticado.
              */
             var requireLogin = toState.data.requireLogin;
@@ -73,12 +73,44 @@
                 var message = '<strong>Atenção!</strong> Você precisa ser autenticado para acessar essa área no sistema.';
                 var id = Flash.create('warning', message);
             }
+            menuCheck();
         });
         /*
-         *
+         * Cria o menu para o usuário
          */
-        $rootScope.fruits = ["banana","Apple", "Orange"];
-
+        function menuCheck(){
+            if($localStorage.lu || $sessionStorage.su){
+                $rootScope.menu = [
+                    {
+                        link : 'dashboard',
+                        label : 'Home',
+                        tooltip : 'Pagina inicial',
+                        icone : 'home'
+                    },
+                    {
+                        link : 'sobre',
+                        label : 'Sobre',
+                        tooltip : 'Sobre o sistema',
+                        icone : 'question-circle'
+                    },
+                    {
+                        link : 'contato',
+                        label : 'Contato',
+                        tooltip : 'Contato',
+                        icone : 'pencil'
+                    },
+                    {
+                        link : 'usuarios',
+                        label : 'Usuários',
+                        tooltip : 'Usuários cadastrados no sistema',
+                        icone : 'users'
+                    },
+                ];
+                $rootScope.logoutButton = true;
+            }else{
+                $rootScope.menu = [];
+                $rootScope.logoutButton = false;
+            }
+        }
     }]);
-
 }());

@@ -72,6 +72,7 @@
                         'dist/about.html': 'dev/pages/about.html',
                         'dist/contact.html': 'dev/pages/contact.html',
                         'dist/login.html': 'dev/pages/login.html',
+                        'dist/users.html': 'dev/pages/users.html',
                     }
                 }
             },

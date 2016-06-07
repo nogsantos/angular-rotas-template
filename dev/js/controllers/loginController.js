@@ -15,16 +15,20 @@
          */
         $scope.init = function(){
             $scope.login = {
-                usuario : "user",
-                senha : "123456"
+                username : "nogsantos",
+                password : "guit23"
             };
+            // $scope.login = {
+            //     username : "um",
+            //     password : "12345"
+            // };
         };
         /*
          * Método para logar no sistema.
          */
         $scope.logar = function(){
-            var usuario = $scope.login.usuario.trim();
-            var password = $scope.login.senha.trim();
+            var usuario = $scope.login.username.trim();
+            var password = $scope.login.password.trim();
             var message;
             var id;
             if( usuario !== "" && password !== ""){
@@ -54,12 +58,12 @@
              * Registro no storage
              */
             $localStorage.lu = {
-                username: res.data.nome,
-                token: res.data.token
+                access_token: res.data[0].access_token,
+                token_type : res.data[0].token_type
             };
             $sessionStorage.su = {
-                username: res.data.nome,
-                token: res.data.token
+                access_token: res.data[0].access_token,
+                token_type: res.data[0].token_type
             };
             /*
              * redirecionamento
@@ -69,11 +73,10 @@
 
         $scope.init();
 
-    }]).factory('LoginFactory', ['$http', function($http){
-        var baseUrl = "http://demo1697442.mockable.io";
+    }]).factory('LoginFactory', ['$http', 'config', function($http, config){
         return {
             doLogin: function(data, success, error) {
-                $http.post(baseUrl + '/authenticate', data).success(success).error(error, status);
+                $http.post(config.apiUrl + '/access_tokens', data).success(success).error(error, status);
             }
         };
     }]);

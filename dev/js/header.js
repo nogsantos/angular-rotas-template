@@ -9,3 +9,10 @@ var app = angular.module('app', [
     'angular-loading-bar',
     'ngFlash'
 ]);
+
+app.constant('config', {
+    appName: 'SisClient',
+    appVersion: '0.0.1',
+    // apiUrl: 'http://localhost:3000/v1'
+    apiUrl: 'https://serverapp-api.herokuapp.com/v1'
+});

@@ -7,17 +7,22 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Conte&uacute;do</th>
                     <th>Usu&aacute;rio</th>
+                    <th>E-mail</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="c in q">
                     <td>{{c.id}}</td>
-                    <td>{{c.body}}</td>
-                    <td>{{c.user.username}}</td>
+                    <td>{{c.username}}</td>
+                    <td>{{c.email}}</td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total de {{meta.count}} registros</td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </article>
