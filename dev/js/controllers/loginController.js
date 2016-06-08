@@ -14,14 +14,14 @@
          * Inicialização do formulário
          */
         $scope.init = function(){
-            $scope.login = {
-                username : "nogsantos",
-                password : "guit23"
-            };
             // $scope.login = {
-            //     username : "um",
-            //     password : "12345"
+            //     username : "nogsantos",
+            //     password : "guit23"
             // };
+            $scope.login = {
+                username : "um",
+                password : "12345"
+            };
         };
         /*
          * Método para logar no sistema.

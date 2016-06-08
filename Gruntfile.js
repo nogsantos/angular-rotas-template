@@ -20,7 +20,7 @@
             uglify: {
                 options: {
                     preserveComments: false,
-                    mangle: true,
+                    mangle: false,
                     report: 'gzip'
                 },
                 my_target: {
@@ -39,10 +39,10 @@
             concat: {
                 basic_and_extras: {
                     files: {
-                        'dist/js/jquery.min.js': [
-                            'bower_components/jquery/dist/jquery.min.js',
-                            'bower_components/bootstrap/dist/js/bootstrap.min.js'
-                        ],
+                        // 'dist/js/jquery.min.js': [
+                        //     'bower_components/jquery/dist/jquery.min.js',
+                        //     'bower_components/bootstrap/dist/js/bootstrap.min.js'
+                        // ],
                         'dist/js/angular.min.js': [
                             'bower_components/angular/angular.min.js',
                             'bower_components/angular-aria/angular-aria.min.js',
@@ -52,6 +52,8 @@
                             'bower_components/ngstorage/ngStorage.min.js',
                             'bower_components/angular-loading-bar/build/loading-bar.min.js',
                             'bower_components/angular-flash-alert/dist/angular-flash.min.js',
+                            'bower_components/angular-bootstrap/ui-bootstrap.min.js',
+                            'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
                         ],
                     },
                 },
@@ -69,10 +71,11 @@
                         'dist/nav.html': 'dev/pages/template/nav.html',
                         'dist/dashboard.html': 'dev/pages/dashboard.html',
                         'dist/error.html': 'dev/pages/error.html',
-                        'dist/about.html': 'dev/pages/about.html',
                         'dist/contact.html': 'dev/pages/contact.html',
                         'dist/login.html': 'dev/pages/login.html',
                         'dist/users.html': 'dev/pages/users.html',
+                        'dist/about.html': 'dev/pages/about/index.html',
+                        'dist/about.form.html': 'dev/pages/about/form.html',
                     }
                 }
             },
@@ -88,6 +91,7 @@
                             'bower_components/fontawesome/css/font-awesome.min.css',
                             'bower_components/bootstrap/dist/css/bootstrap.min.css',
                             'bower_components/angular-loading-bar/build/loading-bar.min.css',
+                            // 'bower_components/angular-bootstrap/ui-bootstrap-csp.css',
                         ]
                     }
                 }

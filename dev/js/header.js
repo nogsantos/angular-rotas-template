@@ -7,12 +7,13 @@ var app = angular.module('app', [
     'ngAnimate',
     'ngStorage',
     'angular-loading-bar',
-    'ngFlash'
+    'ngFlash',
+    'ui.bootstrap'
 ]);
 
 app.constant('config', {
     appName: 'SisClient',
     appVersion: '0.0.1',
-    // apiUrl: 'http://localhost:3000/v1'
-    apiUrl: 'https://serverapp-api.herokuapp.com/v1'
+    apiUrl: 'http://localhost:3000/v1'
+    // apiUrl: 'https://serverapp-api.herokuapp.com/v1'
 });

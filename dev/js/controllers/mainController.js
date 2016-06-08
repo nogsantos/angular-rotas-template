@@ -9,28 +9,29 @@
         '$localStorage',
         '$sessionStorage',
         'config',
-        function($scope, $http, $localStorage, $sessionStorage, config) {
+        '$mdDialog',
+        function($scope, $http, $localStorage, $sessionStorage, config, $mdDialog) {
         /**
          * Inicialização
          */
         var init = function(){
-            $scope.title = 'Dashboard';            
+            $scope.title = 'Dashboard';
         };
         /**
          * Logout
          */
-        $scope.logout = function(){
-            if(confirm('Sair do sistema com segurança?')){
-                $http.delete(config.apiUrl + '/access_tokens/'+$localStorage.lu.access_token)
-                .success(function(){
-                    $localStorage.$reset();
-                    $sessionStorage.$reset();
-                    window.location = "/";
-                }).error(function(error, status){
-                    console.log(error);
-                    console.log(status);
-                });
-            }
+        $scope.logout = function(ev) {
+            var confirm = $mdDialog.confirm()
+                .title('Deseja realmente sair do sistema com segurança?')
+                .targetEvent(ev)
+                .ok('Confirmar')
+                .cancel('Cancelar');
+            $mdDialog.show(confirm).then(function() {
+                $http.delete(config.apiUrl + '/access_tokens/'+$localStorage.lu.access_token);
+                $localStorage.$reset();
+                $sessionStorage.$reset();
+                window.location = "/";
+            });
         };
         /*
          * Chamada para inicializações

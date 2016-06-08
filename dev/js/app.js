@@ -79,7 +79,7 @@
          * Cria o menu para o usuário
          */
         function menuCheck(){
-            if($localStorage.lu || $sessionStorage.su){
+            if($localStorage.lu && $sessionStorage.su){
                 $rootScope.menu = [
                     {
                         link : 'dashboard',

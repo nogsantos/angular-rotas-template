@@ -9,15 +9,18 @@
         '$location',
         'Flash',
         'config',
-        function($scope, $http, $location, Flash, config){
+        '$uibModal',
+        function($scope, $http, $location, Flash, config, $uibModal){
         /**
          * Inicialização do controller
          */
         var init = function(){
-            $scope.title = 'Sobre';
+            $scope.title = 'Tweets';
             consultarDados();
         };
-
+        /**
+         * Consulta
+         */
         function consultarDados(){
             $http.get(
                 config.apiUrl + '/tweets'
@@ -28,6 +31,29 @@
                 var id = Flash.create('warning', message);
             });
         }
+        /**
+         * Chama o formulário para ações.
+         */
+        $scope.form = function(title, id){
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'about.form.html',
+                controller: 'aboutFormController',
+                size: 'lg',
+                backdrop: 'static',
+                resolve: {
+                    title: function () {
+                        return title;
+                    },
+                    id: function () {
+                        return id;
+                    }
+                }
+            });
+        };
+        /**
+         * Chamada inicialização
+         */
         init();
     }]);
 }());

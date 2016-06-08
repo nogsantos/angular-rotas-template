@@ -28,7 +28,7 @@
                 url: "/sobre",
                 templateUrl: "about.html",
                 controller: 'aboutController',
-                controllerAs: 'abt',
+                controllerAs: 'ctrl',
                 data :{
                     requireLogin:true
                 }
@@ -46,7 +46,7 @@
                 url: "/contato",
                 templateUrl: "contact.html",
                 controller: 'contactController',
-                controllerAs: 'ct',
+                controllerAs: 'ctrl',
                 data :{
                     requireLogin:true
                 }
