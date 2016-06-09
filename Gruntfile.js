@@ -20,7 +20,7 @@
             uglify: {
                 options: {
                     preserveComments: false,
-                    mangle: false,
+                    mangle: false, //Alterar para TRUE em produção!!!!!!!
                     report: 'gzip'
                 },
                 my_target: {
