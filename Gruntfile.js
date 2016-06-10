@@ -28,10 +28,12 @@
                         'dist/js/main.min.js': [
                             'dev/js/header.js',
                             'dev/js/routes.js',
-                            'dev/js/controllers/*js',
                             'dev/js/app.js',
                             'dev/js/factory.js',
                             'dev/js/directive.js',
+                            'dev/js/service.js',
+                            'dev/js/translation.js',
+                            'dev/js/controllers/*js',
                         ]
                     }
                 }
@@ -39,10 +41,6 @@
             concat: {
                 basic_and_extras: {
                     files: {
-                        // 'dist/js/jquery.min.js': [
-                        //     'bower_components/jquery/dist/jquery.min.js',
-                        //     'bower_components/bootstrap/dist/js/bootstrap.min.js'
-                        // ],
                         'dist/js/angular.min.js': [
                             'bower_components/angular/angular.min.js',
                             'bower_components/angular-aria/angular-aria.min.js',
@@ -54,6 +52,8 @@
                             'bower_components/angular-flash-alert/dist/angular-flash.min.js',
                             'bower_components/angular-bootstrap/ui-bootstrap.min.js',
                             'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+                            'bower_components/angular-translate/angular-translate.min.js',
+                            'bower_components/angular-sanitize/angular-sanitize.min.js',
                         ],
                     },
                 },

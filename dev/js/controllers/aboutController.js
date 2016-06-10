@@ -11,7 +11,7 @@
         'config',
         '$uibModal',
         '$mdDialog',
-        '$rootScope',
+        '$rootScope',        
         function($scope, $http, $location, Flash, config, $uibModal, $mdDialog, $rootScope){
         /**
          * Inicialização do controller

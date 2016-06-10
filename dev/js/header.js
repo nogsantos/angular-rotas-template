@@ -8,7 +8,9 @@ var app = angular.module('app', [
     'ngStorage',
     'angular-loading-bar',
     'ngFlash',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'pascalprecht.translate',
+    'ngSanitize'
 ]);
 
 app.constant('config', {

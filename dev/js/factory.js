@@ -15,4 +15,18 @@
             }
         };
     }]);
+    /**
+     * Copia o que está sendo digitado em um input do tipo texto no local Storage.
+     */
+    app.service('copyToStorage',['$localStorage', function($localStorage){
+        var copyTo = function(key, value){
+            if(typeof $localStorage[key] === "undefined"){
+                $localStorage[key] = {
+                    data : {}
+                }
+            }
+            $localStorage[key].data[value.id] = value.text;
+        };
+        return copyTo;
+    }]);
 }());
